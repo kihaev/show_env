@@ -1,0 +1,3 @@
+*.o
+exit
+show_env

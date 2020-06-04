@@ -1,0 +1,17 @@
+int len;
+byte *p;
+const char *newline = "\n";
+main() {
+    int argc = *(%rsp)
+    char **envp = %rsp + 8 * (argc + 2);
+    while(envp != NULL) {
+        len = 0;
+        p = *envp;
+        while(*p != '\0') {
+            p++;
+            len++;
+        }
+        write(stdout, len, *envp);
+        write(stdout, 1, newline);
+    }
+}
